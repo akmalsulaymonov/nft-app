@@ -28,11 +28,11 @@ function App() {
       <Header />
       { punkListData.length > 0 && (
           <>
-            <Main 
-              selectedPunk={selectedPunk} 
-              punkListData={punkListData} 
+                    <Main 
+                            selectedPunk={selectedPunk} 
+                                              punkListData={punkListData} 
             />
-            <PunkList 
+                                                      <PunkList 
               punkListData={punkListData} 
               setSelectedPunk={setSelectedPunk} 
             />
