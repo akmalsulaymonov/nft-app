@@ -3,33 +3,15 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cimg/node:18.8.0
+      - image: cimg/node:16.15.0
     steps:
       - checkout
       - run: node --version
-      - run: "npm installing..."
+      - run: echo "npm installing..."
       - run: npm install
       - run: CI=true npm run build
-  test:
-    docker:
-      - image: cimg/node:18.8.0
-    steps:
-      - checkout
-      - run: "testing..."
-      - run: npm install
-      - run: npm test
-  hithere:
-    docker:
-      - image: cimg/node:18.8.0
-    steps:
-      - checkout
-      - run: echo "helooooo!"
 workflows:
   version: 2.1
   build_test_lint:
     jobs:
       - build
-      - hithere
-      - test:
-          requires:
-            - hithere
