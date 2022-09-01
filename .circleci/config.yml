@@ -1,9 +1,21 @@
 version: 2.1
 
 jobs:
-  build:
+  bobby:
     docker:
       - image: cimg/base:2022.05
     steps:
       - checkout
       - run: echo "Say hello to YAML!"
+  sally:
+    docker:
+      - image: cimg/base:2022.05
+    steps:
+      - checkout
+      - run: echo "Double trouble!"
+  workflows:
+    version: 2.1
+    bobby_sally:
+      jobs:
+        - bobby
+        - sally
